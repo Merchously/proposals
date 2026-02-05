@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proposal Deck</title>
+
+  <style>
+    :root{
+      --bg:#0f5b54;
+      --slide:#ffffff;
+      --ink:#0b1320;
+      --muted: rgba(11,19,32,.68);
+      --line: rgba(11,19,32,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --accent:#3cb54c;
+      --accent2:#7ef29a;
+
+      --maxw: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 600px at 30% 0%, rgba(255,255,255,.10), transparent 60%),
+                  linear-gradient(180deg, rgba(0,0,0,.18), transparent 30%),
+                  var(--bg);
+      color: var(--ink);
+      overflow-x:hidden;
+    }
+
+    .deck-wrap{
+      min-height: 100svh;
+      padding: 18px 14px 70px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .deck{
+      width: min(var(--maxw), 100%);
+      display:flex;
+      gap: 18px;
+      overflow-x:auto;
+      padding: 6px 6px 22px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .deck::-webkit-scrollbar{ height: 10px; }
+    .deck::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.18); border-radius: 999px; }
+    .deck::-webkit-scrollbar-track{ background: rgba(255,255,255,.08); border-radius: 999px; }
+
+    @media (max-width: 860px){
+      .deck{
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 10px;
+      }
+    }
+
+    .slide{
+      flex: 0 0 auto;
+      width: 100%;
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: 861px){
+      .slide{
+        width: min(var(--maxw), 100%);
+      }
+      .slide-inner{
+        aspect-ratio: 16/9;
+      }
+    }
+
+    .slide-inner{
+      background: var(--slide);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .chrome{
+      height: 56px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .chrome-left{
+      display:flex; align-items:center; gap:10px; min-width: 0;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .dots{ display:flex; gap:5px; }
+    .dot{ width:6px; height:6px; border-radius: 99px; background: rgba(11,19,32,.25); }
+    .chrome-title{
+      font-size: 12px;
+      color: rgba(11,19,32,.65);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .chrome-right{
+      display:flex; align-items:center; gap:10px;
+      font-size: 12px;
+      color: rgba(11,19,32,.65);
+      font-weight: 800;
+    }
+    .chrome-line{
+      width: 36px; height: 2px; background: rgba(11,19,32,.25); border-radius: 99px;
+    }
+
+    .content{
+      padding: 22px 22px 20px;
+      height: calc(100% - 56px);
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .kicker{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(11,19,32,.55);
+    }
+    .h1{
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: .98;
+      letter-spacing: -.03em;
+      font-weight: 900;
+      margin: 0;
+      white-space: pre-line;
+    }
+    .h2{
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      font-weight: 900;
+      margin: 0;
+    }
+    .sub{
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: stretch;
+      height: 100%;
+    }
+    @media (max-width: 860px){
+      .row{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      border-radius: 16px;
+      background: rgba(11,19,32,.03);
+      border: 1px solid rgba(11,19,32,.08);
+      overflow:hidden;
+    }
+
+    .image{
+      height: 100%;
+      min-height: 240px;
+      background: #e9eef2;
+      position: relative;
+    }
+    .image img{
+      width:100%; height:100%; object-fit:cover;
+      display:block;
+      filter: saturate(.95) contrast(1.03);
+    }
+
+    .accent-block{
+      background: color-mix(in oklab, var(--bg) 82%, white);
+      color: rgba(255,255,255,.92);
+      padding: 16px;
+      border-radius: 16px;
+      position: relative;
+      overflow:hidden;
+    }
+    .accent-block::after{
+      content:"";
+      position:absolute; inset:-60px -60px auto auto;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 60%);
+      transform: rotate(15deg);
+    }
+    .metric{
+      display:flex; flex-direction:column; gap:2px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      width: fit-content;
+    }
+    .metric .v{ font-weight: 900; font-size: 18px; letter-spacing: -.02em; }
+    .metric .l{ opacity:.85; font-size: 12px; font-weight:800; }
+
+    .bullets{
+      margin: 0; padding: 0; list-style:none;
+      display:flex; flex-direction:column; gap: 10px;
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      font-size: 15px;
+      line-height:1.45;
+      color: rgba(11,19,32,.82);
+    }
+    .tick{
+      width: 20px; height:20px;
+      border-radius: 7px;
+      background: rgba(60,181,76,.12);
+      border: 1px solid rgba(60,181,76,.30);
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 20px;
+      margin-top: 1px;
+    }
+    .tick svg{ width: 13px; height: 13px; fill: var(--accent); }
+
+    .tiles{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .tiles{ grid-template-columns: 1fr; } }
+
+    .tile{
+      border-radius: 16px;
+      border: 1px solid rgba(11,19,32,.10);
+      background: rgba(11,19,32,.02);
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      position: relative;
+      overflow:hidden;
+    }
+    .tile.recommended{
+      border-color: rgba(60,181,76,.45);
+      box-shadow: 0 18px 40px rgba(60,181,76,.10);
+    }
+    .tile .name{ font-weight: 900; letter-spacing:-.02em; }
+    .tile .tag{ font-size: 12px; color: rgba(11,19,32,.60); font-weight: 800; }
+    .price{
+      display:flex; align-items:baseline; gap:8px; margin-top: 4px;
+    }
+    .price .amt{ font-weight: 900; font-size: 22px; letter-spacing:-.03em; }
+    .price .cad{ font-size: 12px; color: rgba(11,19,32,.60); font-weight: 900; }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .steps{ grid-template-columns: 1fr; } }
+    .step{
+      border-radius: 16px;
+      border: 1px solid rgba(11,19,32,.10);
+      background: rgba(11,19,32,.02);
+      padding: 14px;
+    }
+    .step .t{ font-weight: 900; }
+    .step .d{ margin-top: 6px; color: rgba(11,19,32,.68); line-height:1.45; }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .cards{ grid-template-columns: 1fr; } }
+    .cardx{
+      border-radius: 16px;
+      border: 1px solid rgba(11,19,32,.10);
+      background: rgba(11,19,32,.02);
+      padding: 14px;
+    }
+    .cardx .n{ font-weight: 900; }
+    .cardx .d{ margin-top:6px; color: rgba(11,19,32,.68); line-height:1.45; }
+    .cardx .p{ margin-top:10px; font-weight:900; }
+
+    details{
+      border: 1px solid rgba(11,19,32,.10);
+      background: rgba(11,19,32,.02);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      list-style:none;
+      display:flex; justify-content:space-between; gap: 10px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .answer{ margin-top: 10px; color: rgba(11,19,32,.70); line-height:1.55; }
+
+    .nav{
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 12px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.25));
+      display:flex; justify-content:center;
+      pointer-events:none;
+    }
+    .nav-inner{
+      pointer-events:auto;
+      width: min(var(--maxw), 100%);
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      align-items:center;
+    }
+    .nav-left{
+      color: rgba(255,255,255,.90);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+    }
+    .nav-btns{ display:flex; gap: 10px; }
+    .btn{
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 900;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:active{ transform: scale(.98); }
+    .btn.primary{
+      background: rgba(60,181,76,.20);
+      border-color: rgba(60,181,76,.35);
+    }
+
+    .sr{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+  </style>
+</head>
+
+<body>
+  <div class="deck-wrap">
+    <div class="deck" id="deck"></div>
+  </div>
+
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="nav-left" id="navLabel">Proposal</div>
+      <div class="nav-btns">
+        <button class="btn" id="prevBtn" type="button">Prev</button>
+        <button class="btn" id="nextBtn" type="button">Next</button>
+        <a class="btn primary" id="primaryBtn" href="#" target="_blank" rel="noreferrer">Book Call</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+
+    async function loadConfig(){
+      try{
+        const res = await fetch("./proposal.json", { cache: "no-store" });
+        if(!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+        return await res.json();
+      }catch(err){
+        return { __error: true, message: String(err) };
+      }
+    }
+
+    function escapeHtml(str){
+      return String(str ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+    function escapeAttr(str){
+      return String(str ?? "")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function money(cfg, n){
+      const c = cfg?.project?.currency || "CAD";
+      try{ return new Intl.NumberFormat(undefined, { style:"currency", currency:c, maximumFractionDigits:0 }).format(n); }
+      catch{ return `${c} ${Math.round(n)}`; }
+    }
+
+    function tick(){
+      return `<span class="tick" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12 3.4 13.4 9 19 21 7 19.6 5.6z"/></svg>
+      </span>`;
+    }
+
+    function slideChrome(cfg, slideIndex, slideCount){
+      const label = cfg?.deck?.label || "Proposal Deck";
+      const year = cfg?.deck?.year || "";
+      return `
+        <div class="chrome">
+          <div class="chrome-left">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="chrome-title">${escapeHtml(label)} • ${slideIndex+1}/${slideCount}</div>
+          </div>
+          <div class="chrome-right">
+            <div class="chrome-line"></div>
+            <div>${escapeHtml(year)}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCover(cfg, sec){
+      return `
+        <div class="content">
+          <div class="row" style="height:100%;">
+            <div style="display:flex; flex-direction:column; justify-content:space-between; gap:16px;">
+              <div>
+                <div class="kicker">${escapeHtml(sec.kicker || cfg?.project?.date || "")}</div>
+                <h1 class="h1">${escapeHtml(sec.headline || cfg?.project?.title || "Proposal")}</h1>
+                <div class="sub">${escapeHtml(sec.subhead || cfg?.project?.subtitle || "")}</div>
+              </div>
+
+              <div class="accent-block">
+                ${sec.metric ? `
+                  <div class="metric">
+                    <div class="v">${escapeHtml(sec.metric.value || "")}</div>
+                    <div class="l">${escapeHtml(sec.metric.label || "")}</div>
+                  </div>
+                ` : ``}
+                <div style="margin-top:12px; font-weight:900; letter-spacing:-.01em;">
+                  Prepared for: ${escapeHtml(cfg?.client?.company || cfg?.client?.name || "—")}
+                </div>
+                <div style="margin-top:6px; opacity:.9; font-weight:800; font-size:12px;">
+                  ${escapeHtml(cfg?.brand?.contactLine || "")}
+                </div>
+              </div>
+            </div>
+
+            <div class="panel image">
+              ${sec.image?.src ? `<img src="${escapeAttr(sec.image.src)}" alt="${escapeAttr(sec.image.alt || "")}">` : ``}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTitleLeftImageRight(cfg, sec){
+      const bullets = sec.bullets || [];
+      return `
+        <div class="content">
+          <div class="row" style="height:100%;">
+            <div style="display:flex; flex-direction:column; gap:12px; justify-content:center;">
+              <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+              <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+              <ul class="bullets" style="margin-top:10px;">
+                ${bullets.map(b => `<li>${tick()}<span>${escapeHtml(b)}</span></li>`).join("")}
+              </ul>
+            </div>
+
+            <div class="panel image">
+              ${sec.image?.src ? `<img src="${escapeAttr(sec.image.src)}" alt="${escapeAttr(sec.image.alt || "")}">` : ``}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSplitLists(cfg, sec){
+      const L = sec.lists?.left || [];
+      const R = sec.lists?.right || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div class="row" style="align-items:start;">
+              <div class="panel" style="padding:14px;">
+                <div style="font-weight:900; margin-bottom:10px;">${escapeHtml(sec.lists?.leftTitle || "Included")}</div>
+                <ul class="bullets">
+                  ${L.map(x => `<li>${tick()}<span>${escapeHtml(x)}</span></li>`).join("")}
+                </ul>
+              </div>
+
+              <div class="panel" style="padding:14px;">
+                <div style="font-weight:900; margin-bottom:10px;">${escapeHtml(sec.lists?.rightTitle || "Not included")}</div>
+                <ul class="bullets">
+                  ${R.map(x => `<li><span class="tick" style="background:rgba(11,19,32,.06); border-color:rgba(11,19,32,.12)"></span><span>${escapeHtml(x)}</span></li>`).join("")}
+                </ul>
+              </div>
+            </div>
+
+            ${sec.note ? `<div class="sub">${escapeHtml(sec.note)}</div>` : ``}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPricingTiles(cfg, sec){
+      const pkgs = sec.packages || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div class="tiles">
+              ${pkgs.map(p => `
+                <div class="tile ${p.recommended ? "recommended" : ""}">
+                  <div>
+                    <div class="name">${escapeHtml(p.name || "")}</div>
+                    <div class="tag">${escapeHtml(p.tag || "")}</div>
+                  </div>
+
+                  <div class="price">
+                    <div class="amt">${typeof p.price?.amount === "number" ? escapeHtml(money(cfg, p.price.amount)) : "—"}</div>
+                    <div class="cad">${escapeHtml(p.price?.cadence || "")}</div>
+                  </div>
+
+                  <ul class="bullets" style="margin-top:8px;">
+                    ${(p.bullets || []).slice(0,4).map(b => `<li>${tick()}<span>${escapeHtml(b)}</span></li>`).join("")}
+                  </ul>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSteps(cfg, sec){
+      const steps = sec.steps || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div class="steps">
+              ${steps.map(s => `
+                <div class="step">
+                  <div class="t">${escapeHtml(s.title || "")}</div>
+                  <div class="d">${escapeHtml(s.desc || "")}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderThreeColumns(cfg, sec){
+      const cols = sec.columns || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div class="cards">
+              ${cols.map(c => `
+                <div class="cardx">
+                  <div class="n">${escapeHtml(c.title || "")}</div>
+                  <div class="d">${escapeHtml(c.desc || "")}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderCards(cfg, sec){
+      const cards = sec.cards || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div class="cards">
+              ${cards.map(c => `
+                <div class="cardx">
+                  <div class="n">${escapeHtml(c.name || "")}</div>
+                  <div class="d">${escapeHtml(c.desc || "")}</div>
+                  <div class="p">${typeof c.price === "number" ? escapeHtml(money(cfg, c.price)) : ""}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFAQ(cfg, sec){
+      const items = sec.items || [];
+      return `
+        <div class="content">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+            <h2 class="h2">${escapeHtml(sec.title || "")}</h2>
+
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              ${items.map(i => `
+                <details>
+                  <summary><span>${escapeHtml(i.q || "")}</span><span style="opacity:.6;">+</span></summary>
+                  <div class="answer">${escapeHtml(i.a || "")}</div>
+                </details>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderContact(cfg, sec){
+      const details = sec.details || [];
+      const primary = sec.primaryCTA || cfg.brand?.primaryCTA || { label:"Book call", href:"#"};
+      const secondary = sec.secondaryCTA || null;
+
+      return `
+        <div class="content">
+          <div class="row" style="height:100%;">
+            <div style="display:flex; flex-direction:column; justify-content:center; gap:12px;">
+              <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+              <h2 class="h2">${escapeHtml(sec.title || "Next steps")}</h2>
+              <div class="sub">${escapeHtml(cfg.project?.validUntil ? `Valid until: ${cfg.project.validUntil}` : "")}</div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+                <a class="btn primary" href="${escapeAttr(primary.href || "#")}" target="_blank" rel="noreferrer">${escapeHtml(primary.label || "Book call")}</a>
+                ${secondary ? `<a class="btn" href="${escapeAttr(secondary.href || "#")}" target="_blank" rel="noreferrer">${escapeHtml(secondary.label || "Email")}</a>` : ``}
+              </div>
+            </div>
+
+            <div class="panel" style="padding:16px; display:flex; flex-direction:column; justify-content:center; gap:10px;">
+              ${details.map(d => `
+                <div style="display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid rgba(11,19,32,.08); padding:10px 0;">
+                  <div style="font-weight:900;">${escapeHtml(d.label || "")}</div>
+                  <div style="color:rgba(11,19,32,.70); font-weight:800; text-align:right;">${escapeHtml(d.value || "")}</div>
+                </div>
+              `).join("")}
+              <div style="margin-top:10px; color:rgba(11,19,32,.65); line-height:1.5;">
+                ${escapeHtml(cfg.brand?.contactLine || "")}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSection(cfg, key){
+      const sec = cfg.sections?.[key] || {};
+      const layout = sec.layout || key;
+
+      switch(layout){
+        case "cover": return renderCover(cfg, sec);
+        case "title-left-image-right": return renderTitleLeftImageRight(cfg, sec);
+        case "split-lists": return renderSplitLists(cfg, sec);
+        case "pricing-tiles": return renderPricingTiles(cfg, sec);
+        case "steps": return renderSteps(cfg, sec);
+        case "three-columns": return renderThreeColumns(cfg, sec);
+        case "cards": return renderCards(cfg, sec);
+        case "faq": return renderFAQ(cfg, sec);
+        case "contact": return renderContact(cfg, sec);
+        default:
+          return `
+            <div class="content">
+              <div class="kicker">${escapeHtml(sec.subtitle || "")}</div>
+              <h2 class="h2">${escapeHtml(sec.title || key)}</h2>
+              ${(sec.bullets || []).length ? `
+                <ul class="bullets" style="margin-top:12px;">
+                  ${(sec.bullets || []).map(b => `<li>${tick()}<span>${escapeHtml(b)}</span></li>`).join("")}
+                </ul>
+              ` : `<div class="sub">${escapeHtml(sec.body || "")}</div>`}
+            </div>
+          `;
+      }
+    }
+
+    function applyTheme(cfg){
+      const bg = cfg?.deck?.background;
+      if(bg) document.documentElement.style.setProperty("--bg", bg);
+
+      const a = cfg?.brand?.accent;
+      const a2 = cfg?.brand?.accent2;
+      if(a) document.documentElement.style.setProperty("--accent", a);
+      if(a2) document.documentElement.style.setProperty("--accent2", a2);
+
+      $("#navLabel").textContent = (cfg?.client?.company ? `${cfg.client.company} • ${cfg?.project?.title || "Proposal"}` : (cfg?.project?.title || "Proposal"));
+      const primary = cfg?.brand?.primaryCTA;
+      if(primary?.href) $("#primaryBtn").setAttribute("href", primary.href);
+      $("#primaryBtn").textContent = primary?.label || "Book Call";
+    }
+
+    function getEnabledOrder(cfg){
+      const enabled = cfg.sectionsEnabled || {};
+      const order = cfg.sectionsOrder || Object.keys(cfg.sections || {});
+      return order.filter(k => enabled[k]);
+    }
+
+    function scrollToSlide(deckEl, idx){
+      const slides = Array.from(deckEl.querySelectorAll(".slide"));
+      const target = slides[idx];
+      if(!target) return;
+      target.scrollIntoView({ behavior:"smooth", block:"start", inline:"start" });
+    }
+
+    (async () => {
+      const cfg = await loadConfig();
+
+      if(cfg.__error){
+        document.body.innerHTML = `<div style="padding:24px; color:white; font-weight:900;">
+          Couldn't load proposal.json. Run a local server (VS Code Live Server).
+          <div style="opacity:.8; font-weight:700; margin-top:10px;">${escapeHtml(cfg.message)}</div>
+        </div>`;
+        return;
+      }
+
+      applyTheme(cfg);
+
+      const deckEl = $("#deck");
+      const keys = getEnabledOrder(cfg);
+      const count = keys.length;
+
+      deckEl.innerHTML = keys.map((key, i) => `
+        <section class="slide" data-slide="${i}">
+          <div class="slide-inner">
+            ${slideChrome(cfg, i, count)}
+            ${renderSection(cfg, key)}
+          </div>
+        </section>
+      `).join("");
+
+      let index = 0;
+      $("#prevBtn").onclick = () => { index = Math.max(0, index - 1); scrollToSlide(deckEl, index); };
+      $("#nextBtn").onclick = () => { index = Math.min(count - 1, index + 1); scrollToSlide(deckEl, index); };
+
+      const observer = new IntersectionObserver((entries) => {
+        const best = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if(!best) return;
+        index = Number(best.target.getAttribute("data-slide")) || 0;
+      }, { root: deckEl, threshold: [0.5, 0.7, 0.9] });
+
+      deckEl.querySelectorAll(".slide").forEach(s => observer.observe(s));
+    })();
+  </script>
+</body>
+</html>
