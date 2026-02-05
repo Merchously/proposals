@@ -1,0 +1,262 @@
+{
+  "brand": {
+    "name": "Merchously",
+    "site": "https://merchously.com",
+    "logoUrl": "",
+    "accent": "#3cb54c",
+    "accentSoft": "#e9f7ee",
+    "contactLine": "Julius Joaquin • Toronto • hello@merchously.com",
+    "primaryCTA": {
+      "label": "Book an intro call",
+      "href": "https://cal.com/merchously"
+    }
+  },
+  "client": {
+    "name": "Sarah Chen",
+    "company": "Sarah Chen Creative"
+  },
+  "project": {
+    "title": "Merch Program Proposal",
+    "subtitle": "We help brands launch and grow merchandise—without the headaches, guesswork, or wasted spend.",
+    "date": "Feb 5, 2026",
+    "validUntil": "Feb 19, 2026",
+    "currency": "CAD"
+  },
+  "theme": {
+    "pageBg": "#ffffff",
+    "text": "#0b1320",
+    "muted": "rgba(11,19,32,.68)",
+    "border": "rgba(11,19,32,.10)",
+    "maxWidth": 1100
+  },
+  "nav": {
+    "enabled": true,
+    "label": "Proposal sections"
+  },
+  "sectionsEnabled": {
+    "cover": true,
+    "problem": true,
+    "solution": true,
+    "packages": true,
+    "scope": true,
+    "timeline": true,
+    "addOns": true,
+    "faq": true,
+    "nextSteps": true
+  },
+  "sectionsOrder": [
+    "cover",
+    "problem",
+    "solution",
+    "packages",
+    "scope",
+    "timeline",
+    "addOns",
+    "faq",
+    "nextSteps"
+  ],
+  "sections": {
+    "cover": {
+      "type": "cover",
+      "kicker": "Merchously Proposal",
+      "headline": "Kickstart Your Eco-Friendly Merch Line with Sarah Chen Creative",
+      "subhead": "Transform your Instagram influence into revenue with sustainable products",
+      "meta": [
+        {
+          "label": "Prepared for",
+          "value": "Sarah Chen Creative"
+        },
+        {
+          "label": "Date",
+          "value": "Feb 5, 2026"
+        },
+        {
+          "label": "Valid until",
+          "value": "Feb 19, 2026"
+        }
+      ],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Hero image"
+      }
+    },
+    "problem": {
+      "type": "feature",
+      "eyebrow": "Why merch fails",
+      "title": "Most merch fails for the same reasons.",
+      "body": "No strategy. Designs that look nice but don't sell. Production chaos. Marketing that never really launches.",
+      "bullets": [
+        "No clear strategy — just \"let's try merch\"",
+        "Design that looks good but doesn't convert",
+        "Production + fulfillment headaches",
+        "Too many vendors, no accountability"
+      ],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Team planning"
+      },
+      "imageSide": "right"
+    },
+    "solution": {
+      "type": "feature",
+      "eyebrow": "What we do",
+      "title": "We don't just make products. We build merch systems that work.",
+      "body": "Strategy, design, production, and growth—handled by one team so your merch becomes a revenue stream (not a side project).",
+      "bullets": [
+        "Launch an eco-friendly merch line with t-shirts and tote bags",
+        "Leverage your Instagram audience to boost revenue",
+        "Align your brand with sustainability and eco-conscious living",
+        "Create a foundation for future merch initiatives"
+      ],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Collaboration"
+      },
+      "imageSide": "left"
+    },
+    "packages": {
+      "type": "packages",
+      "eyebrow": "Ways to work together",
+      "title": "The Launch tier is perfect for first-time merch programs like yours, allowing you to introduce up to 5 eco-friendly products while capitalizing on your strong Instagram presence.",
+      "items": [
+        {
+          "name": "LAUNCH",
+          "tagline": "Everything you need to start merch properly.",
+          "price": {
+            "amount": 3500,
+            "cadence": "One-time"
+          },
+          "bullets": [
+            "Help deciding what products to sell",
+            "Design for your first merch items",
+            "Set up production + delivery",
+            "A clear plan for how to launch"
+          ],
+          "recommended": true
+        },
+        {
+          "name": "GROWTH",
+          "tagline": "Fix what's not working and sell merch better.",
+          "price": {
+            "amount": 2000,
+            "cadence": "Monthly"
+          },
+          "bullets": [
+            "Review current merch + store",
+            "Improvements to designs/products",
+            "Pricing + product mix guidance",
+            "Drop/promo planning"
+          ],
+          "recommended": false
+        },
+        {
+          "name": "SCALE",
+          "tagline": "Turn merch into a real business.",
+          "price": {
+            "amount": 5000,
+            "cadence": "Monthly"
+          },
+          "bullets": [
+            "Continuous product planning",
+            "Manage production + logistics",
+            "Support bigger launches/collections",
+            "Improve sales over time"
+          ],
+          "recommended": false
+        }
+      ],
+      "note": "*Prices shown in CAD."
+    },
+    "scope": {
+      "type": "split",
+      "eyebrow": "Scope",
+      "title": "Clear boundaries = faster approvals.",
+      "leftTitle": "Included",
+      "left": [
+        "Consultation on eco-friendly materials",
+        "Design assistance for t-shirts and tote bags",
+        "Production of up to 5 initial products",
+        "Guidance on leveraging Instagram for launch",
+        "Basic packaging solutions"
+      ],
+      "rightTitle": "Not included",
+      "right": [
+        "Rush delivery",
+        "Custom packaging beyond basic solutions",
+        "Pop-up event support",
+        "Influencer seeding kits"
+      ],
+      "footerNote": "Anything outside scope can be added as an add-on (so budget stays controlled)."
+    },
+    "timeline": {
+      "type": "steps",
+      "eyebrow": "Timeline",
+      "title": "Here's what happens next.",
+      "steps": [
+        {
+          "title": "Week 1",
+          "desc": "Initial consultation and SKU planning"
+        },
+        {
+          "title": "Week 2",
+          "desc": "Design finalization and material selection"
+        },
+        {
+          "title": "Week 3-4",
+          "desc": "Production and quality checks"
+        },
+        {
+          "title": "Launch",
+          "desc": "Coordinate Instagram campaign for product launch"
+        }
+      ]
+    },
+    "addOns": {
+      "type": "cards",
+      "eyebrow": "Optional add-ons",
+      "title": "Boosters (only if needed).",
+      "items": [
+        {
+          "name": "Eco-friendly materials consultation",
+          "desc": "Ensure your products align with sustainable practices",
+          "price": 1500
+        },
+        {
+          "name": "Design assistance",
+          "desc": "Create compelling designs that resonate with your audience",
+          "price": 1000
+        },
+        {
+          "name": "Photography/content",
+          "desc": "High-quality content for social media promotion",
+          "price": 500
+        }
+      ]
+    },
+    "faq": {
+      "type": "faq",
+      "eyebrow": "FAQ",
+      "title": "Quick answers.",
+      "items": [
+        {
+          "q": "How will eco-friendly materials impact my brand?",
+          "a": "Using sustainable materials reinforces your brand's commitment to sustainability, appealing to eco-conscious consumers."
+        }
+      ]
+    },
+    "nextSteps": {
+      "type": "cta",
+      "eyebrow": "Next steps",
+      "title": "If you're ready to do it properly, we should talk.",
+      "body": "If scope + pricing look good, book the intro call and we'll kick off.",
+      "primaryCTA": {
+        "label": "Book an intro call",
+        "href": "https://cal.com/merchously"
+      },
+      "secondaryCTA": {
+        "label": "Email questions",
+        "href": "mailto:hello@merchously.com?subject=Proposal%20Questions"
+      }
+    }
+  }
+}
