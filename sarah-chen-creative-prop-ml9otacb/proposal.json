@@ -1,0 +1,256 @@
+{
+  "deck": {
+    "mode": "slides",
+    "background": "#0f5b54",
+    "label": "Proposal Deck",
+    "year": "2026"
+  },
+  "brand": {
+    "name": "Merchously",
+    "tagline": "Merch programs without operational headaches.",
+    "logoUrl": "",
+    "accent": "#3cb54c",
+    "accent2": "#7ef29a",
+    "contactLine": "Julius Joaquin • Toronto • hello@merchously.com",
+    "primaryCTA": {
+      "label": "Book the kickoff call",
+      "href": "https://cal.com/merchously"
+    }
+  },
+  "client": {
+    "name": "Sarah Chen",
+    "company": "Sarah Chen Creative"
+  },
+  "project": {
+    "title": "Merch Program Proposal",
+    "subtitle": "A clear plan, a clean scope, and a simple path to launch.",
+    "date": "Feb 5, 2026",
+    "validUntil": "Feb 19, 2026",
+    "currency": "CAD"
+  },
+  "sectionsEnabled": {
+    "cover": true,
+    "outcomes": true,
+    "scope": true,
+    "packages": true,
+    "timeline": true,
+    "process": true,
+    "addOns": true,
+    "faq": true,
+    "contact": true
+  },
+  "sectionsOrder": [
+    "cover",
+    "outcomes",
+    "scope",
+    "packages",
+    "timeline",
+    "process",
+    "addOns",
+    "faq",
+    "contact"
+  ],
+  "sections": {
+    "cover": {
+      "layout": "cover",
+      "kicker": "Proposal Deck",
+      "headline": "Launch Your Sustainable Merch Line with Sarah Chen Creative",
+      "subhead": "Transform your engaged audience into loyal customers with eco-friendly products.",
+      "metric": {
+        "value": "3-5 weeks",
+        "label": "Typical launch window"
+      },
+      "image": {
+        "src": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Cover image"
+      }
+    },
+    "outcomes": {
+      "layout": "title-left-image-right",
+      "title": "Outcomes",
+      "subtitle": "What you'll walk away with",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Team collaboration"
+      },
+      "bullets": [
+        "Generate a new revenue stream through eco-friendly merch.",
+        "Engage your Instagram audience with sustainable products.",
+        "Establish a strong foundation for future merch endeavors.",
+        "Deliver high-quality, eco-conscious t-shirts and tote bags."
+      ]
+    },
+    "scope": {
+      "layout": "split-lists",
+      "title": "Scope",
+      "subtitle": "What's included vs. not included",
+      "lists": {
+        "leftTitle": "Included",
+        "left": [
+          "Consultation on eco-friendly materials",
+          "Design assistance for t-shirts and tote bags",
+          "Production of up to 5 sustainable products",
+          "Setup of an online store for easy purchasing",
+          "Marketing strategy to engage your audience"
+        ],
+        "rightTitle": "Not included",
+        "right": [
+          "Rush delivery",
+          "Custom packaging",
+          "Pop-up event support",
+          "Wholesale distribution"
+        ]
+      },
+      "note": "Anything outside scope becomes an add-on."
+    },
+    "packages": {
+      "layout": "pricing-tiles",
+      "title": "Packages",
+      "subtitle": "The Launch tier is ideal for first-time merch programs and aligns with your goal to start with eco-friendly products and generate revenue.",
+      "packages": [
+        {
+          "name": "Tier 1 — Launch",
+          "tag": "Best for: first drop / testing demand",
+          "price": {
+            "amount": 5500,
+            "cadence": "one-time"
+          },
+          "recommended": true,
+          "bullets": [
+            "Launch strategy + SKU plan",
+            "Supplier onboarding + product specs",
+            "Store setup + launch checklist",
+            "Delivery in ~3-5 weeks"
+          ]
+        },
+        {
+          "name": "Tier 2 — Growth",
+          "tag": "Best for: monthly drops + ops support",
+          "price": {
+            "amount": 2750,
+            "cadence": "monthly"
+          },
+          "recommended": false,
+          "bullets": [
+            "New SKUs + inventory support",
+            "Monthly promo planning",
+            "Operational support + reporting",
+            "Faster iteration cycle"
+          ]
+        },
+        {
+          "name": "Tier 3 — Scale",
+          "tag": "Best for: multi-channel + wholesale",
+          "price": {
+            "amount": 6500,
+            "cadence": "monthly"
+          },
+          "recommended": false,
+          "bullets": [
+            "Channel expansion + automation",
+            "Wholesale readiness + vendor assets",
+            "Deep ops + performance reporting",
+            "Higher-touch management"
+          ]
+        }
+      ]
+    },
+    "timeline": {
+      "layout": "steps",
+      "title": "Timeline",
+      "subtitle": "What happens when",
+      "steps": [
+        {
+          "title": "Week 1",
+          "desc": "Initial consultation and design planning"
+        },
+        {
+          "title": "Week 2",
+          "desc": "Finalize designs and select materials"
+        },
+        {
+          "title": "Week 3-4",
+          "desc": "Production of merch items"
+        },
+        {
+          "title": "Launch",
+          "desc": "Launch your eco-friendly merch line online"
+        }
+      ]
+    },
+    "process": {
+      "layout": "three-columns",
+      "title": "Process",
+      "subtitle": "How we work (simple + clean)",
+      "columns": [
+        {
+          "title": "1) Align",
+          "desc": "We get clear on audience, products, budget, and what \"win\" looks like."
+        },
+        {
+          "title": "2) Build",
+          "desc": "We set up suppliers, products, pricing, and channel without chaos."
+        },
+        {
+          "title": "3) Launch",
+          "desc": "Final checks, handoff, and a launch plan you can execute."
+        }
+      ]
+    },
+    "addOns": {
+      "layout": "cards",
+      "title": "Add-ons",
+      "subtitle": "Optional boosters (only if needed)",
+      "cards": [
+        {
+          "name": "Eco-friendly materials consultation",
+          "desc": "Ensure your products align with sustainable values",
+          "price": 1000
+        },
+        {
+          "name": "Design assistance",
+          "desc": "Bring your creative vision to life with professional design support",
+          "price": 1500
+        }
+      ]
+    },
+    "faq": {
+      "layout": "faq",
+      "title": "FAQ",
+      "subtitle": "Quick answers",
+      "items": [
+        {
+          "q": "How can I ensure my products are eco-friendly?",
+          "a": "We provide consultation on sourcing sustainable materials and production processes."
+        }
+      ]
+    },
+    "contact": {
+      "layout": "contact",
+      "title": "Next steps",
+      "subtitle": "If scope + pricing look good, let's kick off.",
+      "primaryCTA": {
+        "label": "Book kickoff call",
+        "href": "https://cal.com/merchously"
+      },
+      "secondaryCTA": {
+        "label": "Email questions",
+        "href": "mailto:hello@merchously.com?subject=Proposal%20Questions"
+      },
+      "details": [
+        {
+          "label": "Prepared for",
+          "value": "Sarah Chen Creative"
+        },
+        {
+          "label": "Valid until",
+          "value": "Feb 19, 2026"
+        },
+        {
+          "label": "Contact",
+          "value": "hello@merchously.com"
+        }
+      ]
+    }
+  }
+}
